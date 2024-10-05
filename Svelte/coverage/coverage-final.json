@@ -1,0 +1,26 @@
+{
+	"/Users/shivshankarkushwaha/Desktop/advanced/src/app.d.ts": {
+		"path": "/Users/shivshankarkushwaha/Desktop/advanced/src/app.d.ts",
+		"all": true,
+		"statementMap": { "12": { "start": { "line": 13, "column": 0 }, "end": { "line": 13, "column": 10 } } },
+		"s": { "12": 0 },
+		"branchMap": {
+			"0": {
+				"type": "branch",
+				"line": 1,
+				"loc": { "start": { "line": 1, "column": 268 }, "end": { "line": 13, "column": 10 } },
+				"locations": [{ "start": { "line": 1, "column": 268 }, "end": { "line": 13, "column": 10 } }]
+			}
+		},
+		"b": { "0": [1] },
+		"fnMap": {
+			"0": {
+				"name": "(empty-report)",
+				"decl": { "start": { "line": 1, "column": 268 }, "end": { "line": 13, "column": 10 } },
+				"loc": { "start": { "line": 1, "column": 268 }, "end": { "line": 13, "column": 10 } },
+				"line": 1
+			}
+		},
+		"f": { "0": 1 }
+	}
+}

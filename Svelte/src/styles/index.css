@@ -1,0 +1,14 @@
+@import './base/index.css';
+@import './components/index.css';
+@import './utils/index.css';
+
+@import './base/fonts.css';
+:root {
+	--primary-color: #00ff99;
+	--secondary-color: #9333ea;
+	--tertiary-color: #f59e0b;
+
+	--dark-primary-color: #00e187;
+	--dark-secondary-color: #832de9;
+	--dark-tertiary-color: #e0900a;
+}

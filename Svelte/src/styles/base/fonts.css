@@ -1,0 +1,23 @@
+/* Write your global styles here, in PostCSS syntax
+/* latin */
+@font-face {
+	font-family: 'Manrope';
+	src: local('Manrope'), local('manrope'), url('/assets/fonts/Manrope-VariableFont_wght.ttf');
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Silkscreen';
+	src: local('Silkscreen'), local('silkscreen'), url('/assets/fonts/Silkscreen-Regular.ttf');
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Silkscreen';
+	src: local('Silkscreen'), local('silkscreen'), url('/assets/fonts/Silkscreen-Bold.ttf');
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+}
