@@ -2,16 +2,16 @@ import bcrypt from 'bcrypt';
 import { config } from '../config';
 
 export const generateSalt = async () => {
-    const salt = await bcrypt.genSalt(config.SALT_ROUNDS);
-    return salt;
-}
+	const salt = await bcrypt.genSalt(config.SALT_ROUNDS);
+	return salt;
+};
 
 export const hashPassword = async (password: string, salt: string) => {
-    const hashedPassword = await bcrypt.hash(password, salt);
-    return hashedPassword;
-}
+	const hashedPassword = await bcrypt.hash(password, salt);
+	return hashedPassword;
+};
 
 export const comparePassword = async (password: string, hashedPassword: string) => {
-    const match = await bcrypt.compare(password, hashedPassword);
-    return match;
-}
+	const match = await bcrypt.compare(password, hashedPassword);
+	return match;
+};
