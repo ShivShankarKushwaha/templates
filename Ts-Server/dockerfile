@@ -4,17 +4,20 @@ FROM node:18-alpine
 # Set the working directory in the container
 WORKDIR /app
 
-# Copy package.json and package-lock.json (or yarn.lock)
-COPY package*.json ./
-
-# Install dependencies
-RUN npm install
-
 # Copy the rest of the application code
 COPY . .
+
+# install bun
+RUN npm install -g bun
+
+# Install dependencies
+RUN bun install
+
+# build the app
+RUN bun run build
 
 # Expose the port your Express app is listening on
 EXPOSE 5500
 
 # Command to run the application
-CMD [ "npm", "start" ]
+CMD [ "bun", "start" ]

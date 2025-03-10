@@ -22,12 +22,9 @@ else
   echo "Skipping container removal as 'remove' argument was not provided."
 fi
 
-# Open localhost:3000 in the browser (macOS-specific using the 'open' command)
-echo "Opening http://localhost:5500 in your browser..."
-open http://localhost:5500
-
 # load the environment variables
 source .env
+ENV NODE_ENV=production
 
-# Run the container
-docker run -p 5500:5500 $IMAGE_NAME
+# Run the container with environment variables
+docker run --env-file .env -e NODE_ENV=production -p 5500:5500 $IMAGE_NAME
