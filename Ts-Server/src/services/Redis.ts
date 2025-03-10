@@ -1,11 +1,12 @@
 import { createClient, RedisClientType } from 'redis';
+import { config } from '../config';
 
 let client: RedisClientType;
 
 export const initRedisClient = async () => {
 	if (!client) {
 		client = createClient({
-			url: process.env.REDIS_URL,
+			url: config.REDIS_URL,
 			socket: {
 				reconnectStrategy: (retryCount) => {
 					if (retryCount > 3) {
