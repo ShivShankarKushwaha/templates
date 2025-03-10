@@ -43,12 +43,14 @@ bun install
 ### Environment Variables
 
 Create a `.env` file in the root of the project and configure the following environment variables:
-
+**Do not use quotes to keep value in .env**
+❌ APP_SECRET="asda34rwer" or APP_SECRET='asda34rwer'
+✅ APP_SECRET=asda34rwer
 ```
-MONGO_URI="your-mongodb-uri"
-APP_SECRET="your-app-secret"
-REDIS_URL="your-redis-url"
-REDIS_PASSWORD="your-redis-password"
+MONGO_URI=your-mongodb-uri
+APP_SECRET=your-app-secret
+REDIS_URL=your-redis-url
+REDIS_PASSWORD=your-redis-password
 ```
 
 ### Running the Development Server
