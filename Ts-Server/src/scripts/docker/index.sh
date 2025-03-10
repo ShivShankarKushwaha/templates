@@ -24,7 +24,6 @@ fi
 
 # load the environment variables
 source .env
-ENV NODE_ENV=production
 
 # Run the container with environment variables
 docker run --env-file .env -e NODE_ENV=production -p 5500:5500 $IMAGE_NAME
