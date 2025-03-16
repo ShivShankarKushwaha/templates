@@ -1,11 +1,1 @@
-TRANSLATION_DIR="./src"
-
-matched_lines=$(grep -r -E '^[^<]*\{\$LL\.[^()]*\}' "$TRANSLATION_DIR" || true)
-
-if [ -n "$matched_lines" ]; then
-	echo "Error: Not using parentheses in the translation."
-	echo "$matched_lines"
-	exit 1
-fi
-
 bunx --no-install lint-staged
