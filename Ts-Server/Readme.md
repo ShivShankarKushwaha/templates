@@ -14,6 +14,7 @@ This is a Node.js backend template using Express.js, TypeScript, and several oth
 - Rate limiting for security
 - Password hashing with bcrypt
 - JWT for authentication
+- vercel for deployment
 
 ## Prerequisites
 
@@ -114,6 +115,19 @@ bun run lint
 
 # Automatically fix linting errors
 bun run format
+```
+
+## Deploying on Vercel
+Ensure you have an account on vercel.com
+```bash
+# install vercel globally
+bun add -g vercel
+
+# deploy on vercel
+vercel
+
+# if updating deploy on vercel
+vercel;vercel --prod
 ```
 
 ## Contributing
