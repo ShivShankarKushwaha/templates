@@ -1,9 +1,9 @@
 {
-	"name": "ts-server",
+	"name": "server",
 	"version": "1.0.0",
 	"main": "src/server.ts",
 	"scripts": {
-		"dev": "nodemon src/server.ts",
+		"dev": "tsc-watch --onSuccess \"ts-node src/server.ts\"",
 		"start": "node dist/server.js",
 		"build": "tsc -p .",
 		"test": "vitest",
@@ -30,6 +30,7 @@
 		"express-winston": "^4.2.0",
 		"joi": "^17.13.3",
 		"jsonwebtoken": "^9.0.2",
+		"module-alias": "^2.2.3",
 		"mongoose": "^8.4.4",
 		"redis": "^4.7.0",
 		"winston": "^3.13.0",
@@ -43,6 +44,7 @@
 		"@types/eslint-config-prettier": "^6.11.3",
 		"@types/express": "^4.17.21",
 		"@types/jsonwebtoken": "^9.0.6",
+		"@types/module-alias": "^2.0.4",
 		"@types/mongoose": "^5.11.97",
 		"@typescript-eslint/eslint-plugin": "^8.25.0",
 		"@vitest/coverage-v8": "3.0.7",
@@ -51,11 +53,14 @@
 		"eslint-plugin-unused-imports": "^4.1.4",
 		"husky": "^9.1.7",
 		"jiti": "^2.4.2",
-		"nodemon": "^3.1.4",
 		"prettier": "^3.5.2",
 		"ts-node-dev": "^2.0.0",
+		"tsc-watch": "^6.2.1",
 		"typescript": "^5.5.3",
 		"typescript-eslint": "^8.25.0",
 		"vitest": "^3.0.7"
+	},
+	"_moduleAliases": {
+		"@": "./dist"
 	}
 }

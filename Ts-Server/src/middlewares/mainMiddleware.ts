@@ -1,8 +1,8 @@
 import express, { Application } from 'express';
 import cors from 'cors';
-import { logger } from '../logger';
 import cookieParser from 'cookie-parser';
-import { userAuthPayload } from '../types';
+import { userAuthPayload } from '@/types';
+import { logger } from '@/config';
 import { limiter } from './express-rate-limit';
 
 export const middleware = (app: Application) => {

@@ -1,16 +1,16 @@
 import Jwt from 'jsonwebtoken';
-import { config } from '../config';
+import env from '@/env';
 import { NextFunction, Request, Response } from 'express';
-import { User } from '../models';
+import { User } from '@/models';
 
 export const generateToken = (payload: string) => {
 	console.log('payload', payload);
-	const token = Jwt.sign(payload, config.APP_SECRET);
+	const token = Jwt.sign(payload, env.APP_SECRET);
 	return token;
 };
 
 export const verifyToken = (token: string) => {
-	const payload = Jwt.verify(token, config.APP_SECRET);
+	const payload = Jwt.verify(token, env.APP_SECRET);
 	return payload;
 };
 

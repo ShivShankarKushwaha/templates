@@ -1,7 +1,7 @@
 import expressWinston from 'express-winston';
 import { format, transports } from 'winston';
 import * as winstonMongoDB from 'winston-mongodb';
-import { config } from '../config';
+import env from '@/env';
 
 const customFormat = format.combine(
 	format.timestamp(),
@@ -19,7 +19,7 @@ const consoleFormat = format.combine(
 
 export const logger = expressWinston.logger({
 	transports:
-		config.NODE_ENV === 'development'
+		env.NODE_ENV === 'development'
 			? [new transports.Console({ format: consoleFormat })]
 			: [
 					//   new transports.File({ filename: path.join(__dirname, "../../logs/warnings.log"), level: "warn" }),
@@ -28,7 +28,7 @@ export const logger = expressWinston.logger({
 					// new transports.File({ filename: 'logs/warnings.log', level: 'warn' }),
 					new winstonMongoDB.MongoDB({
 						level: 'warn',
-						db: config.MONGO_URI,
+						db: env.MONGO_URI,
 						options: { useUnifiedTopology: true },
 						collection: 'logs',
 						capped: true,

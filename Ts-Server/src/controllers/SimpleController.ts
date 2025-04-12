@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { getRedisValue, setRedisValue } from '../services';
+import { getRedisValue, setRedisValue } from '@/config';
 
 const home = async (req: Request, res: Response) => {
 	let respData = await getRedisValue('home');
