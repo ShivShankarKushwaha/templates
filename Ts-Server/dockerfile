@@ -1,23 +1,27 @@
-# Use a lightweight Node.js base image
-FROM node:18-alpine
+# Stage 1: Build stage
+FROM node:18-alpine AS builder
 
-# Set the working directory in the container
 WORKDIR /app
 
-# Copy the rest of the application code
-COPY . .
-
-# install bun
 RUN npm install -g bun
-
-# Install dependencies
-RUN bun install
-
-# build the app
+COPY package.json bun.lock* ./
+RUN bun install --frozen-lockfile
+COPY . .
 RUN bun run build
 
-# Expose the port your Express app is listening on
-EXPOSE 5500
+# Stage 2: Runtime stage
+FROM node:18-alpine
 
-# Command to run the application
-CMD [ "bun", "start" ]
+WORKDIR /app
+
+# Install bun directly from npm (no curl needed)
+RUN npm install -g bun && \
+    npm uninstall -g npm && \
+    rm -rf /usr/local/lib/node_modules/npm
+
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/package.json .
+
+EXPOSE 5500
+CMD ["bun", "start"]
