@@ -2,7 +2,6 @@
 @import './components/index.css';
 @import './utils/index.css';
 
-@import './base/fonts.css';
 :root {
 	--primary-color: #00ff99;
 	--secondary-color: #9333ea;
