@@ -1,14 +1,13 @@
-import 'module-alias/register';
 import express from 'express';
-import { App } from '@/services';
-import { dbConnect, initRedisClient } from '@/config';
-import env from '@/env';
+import { App } from './services';
+import { dbConnect, initRedisClient } from './config';
+import env from './env';
 
 async function startServer() {
 	const app = express();
 	App(app);
 	await dbConnect();
-	await initRedisClient();
+	// await initRedisClient();
 	app.listen(env.PORT, () => {
 		console.log(`Server running on port ${env.PORT}`);
 	});

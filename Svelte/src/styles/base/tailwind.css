@@ -1,0 +1,16 @@
+/* Import Tailwind CSS */
+@import 'tailwindcss';
+
+/* Define your theme extensions */
+@theme {
+  --font-family-sans: 'Manrope', sans-serif;
+  --font-family-silk: 'Silkscreen', sans-serif;
+
+  --color-primary: var(--primary-color);
+  --color-primary-dark: var(--dark-primary-color);
+  --color-secondary: var(--secondary-color);
+  --color-secondary-dark: var(--dark-secondary-color);
+  --color-tertiary: var(--tertiary-color);
+  --color-tertiary-dark: var(--dark-tertiary-color);
+}
+
