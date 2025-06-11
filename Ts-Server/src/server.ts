@@ -7,7 +7,7 @@ async function startServer() {
 	const app = express();
 	App(app);
 	await dbConnect();
-	// await initRedisClient();
+	await initRedisClient();
 	app.listen(env.PORT, () => {
 		console.log(`Server running on port ${env.PORT}`);
 	});
