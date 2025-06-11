@@ -1,18 +1,24 @@
 import expressWinston from 'express-winston';
 import { format, transports } from 'winston';
 import * as winstonMongoDB from 'winston-mongodb';
-import env from '@/env';
+import env from '../env';
 
 const customFormat = format.combine(
 	format.timestamp(),
 	format.printf(({ timestamp, level, message, ...metadata }) => {
-		return `${timestamp} [${level.toUpperCase()}]: ${message} ${JSON.stringify(metadata.meta.req.headers)} ${JSON.stringify(metadata.meta.req.body)} ${JSON.stringify(metadata.meta.res)}`;
+		const meta = metadata.meta as any || {};
+		const req = meta.req || {};
+		const res = meta.res || {};
+		return `${timestamp} [${level.toUpperCase()}]: ${message} ${JSON.stringify(req.headers)} ${JSON.stringify(req.body)} ${JSON.stringify(res)}`;
 	})
 );
 const consoleFormat = format.combine(
 	format.timestamp(),
 	format.printf(({ timestamp, level, message, ...metadata }) => {
-		return `${timestamp} [${level.toUpperCase()}]: ${message} ${JSON.stringify(metadata.meta.req.headers)} ${JSON.stringify(metadata.meta.req.body)} ${JSON.stringify(metadata.meta.res)}`;
+		const meta = (metadata.meta ?? {}) as { req?: any; res?: any };
+		const req = meta.req ?? {};
+		const res = meta.res ?? {};
+		return `${timestamp} [${level.toUpperCase()}]: ${message} ${JSON.stringify(req.headers)} ${JSON.stringify(req.body)} ${JSON.stringify(res)}`;
 	}),
 	format.prettyPrint({ colorize: true })
 );
@@ -29,7 +35,6 @@ export const logger = expressWinston.logger({
 					new winstonMongoDB.MongoDB({
 						level: 'warn',
 						db: env.MONGO_URI,
-						options: { useUnifiedTopology: true },
 						collection: 'logs',
 						capped: true,
 						cappedMax: 1024 * 1024 * 5,
