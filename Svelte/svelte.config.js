@@ -21,18 +21,18 @@ const config = {
 			fallback: '200.html'
 		}),
 		alias: {
-			'@apis': '/src/apis',
-			'@components': '/src/components',
-			'@images': '/src/images',
-			'@lib': '/src/lib',
-			'@routes': '/src/routes',
-			'@screens': '/src/screens',
-			'@scripts': '/src/scripts',
-			'@stores': '/src/stores',
-			'@styles': '/src/styles',
-			'@types': '/src/types',
-			'@utils': '/src/utils',
-			'@static': '/static'
+			'@apis': 'src/apis',
+			'@components': 'src/components',
+			'@images': 'src/images',
+			'@lib': 'src/lib',
+			'@routes': 'src/routes',
+			'@screens': 'src/screens',
+			'@scripts': 'src/scripts',
+			'@stores': 'src/stores',
+			'@styles': 'src/styles',
+			'@types': 'src/types',
+			'@utils': 'src/utils',
+			'@static': 'static'
 		}
 	}
 };
