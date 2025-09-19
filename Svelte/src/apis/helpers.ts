@@ -11,7 +11,8 @@ const axiosInstance = axios.create({
 
 const handleRequest = async (config: AxiosRequestConfig) => {
 	try {
-		const response = await axiosInstance({ ...config, ...axiosInstance.defaults.headers });
+		const needsCredentials = config.url?.startsWith(PUBLIC_SERVER_URL);
+		const response = await axiosInstance({ ...config, ...axiosInstance.defaults.headers, withCredentials: needsCredentials });
 		return response;
 	} catch (error) {
 		console.error('API request failed:', error);
